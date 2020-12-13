@@ -1,29 +1,98 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 75%;
+}
 
 body{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+    padding: 100px;;
     font-family: 'Kumbh Sans';
-    
+    background: linear-gradient(#AF67E9, #6565E7); 
+}
+
+h1, h2{
+    color: hsl(237, 12%, 33%);
 }
 
 h1{
-    color: blue;
+    font-size: 2rem;
+}
+
+p{
+    color: hsl(240, 6%, 50%);
 }
 
 
 .container {
-    height: 100%;
-    width: 50%;
-    background-color: linear-gradient(#AF67E9, #6565E7);   
+    height: 70%;
+    max-width:360px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    position: relative;
+
+}
+.accordion {
+    width: 100%;
+}
+
+.contentBox{
+    position: relative;
+    margin: 0.8rem 1.7rem;
+
+}
+.label{
+    position:relative;
+    padding: 0.8rem 1.7rem;
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+}
+.label::before{
+content: url('/images/icon-arrow-down.svg');
+position: absolute;
+top:50%;
+right: 20%;
+transform: translateY(-50%);
+}
+.content{
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    overflow-y: auto;
 
 }
 
+.active {
+    height: 150px;
+    padding: 0.8rem;
+}
+
 .img-mobile{
-    width: 30%;
-   
+    position: absolute;
+    top: -8rem;
+    right: 50%;
+    transform: translateX(45%);
+  
+    
+}
+
+.img-desktop{
+    display: none;
 }
 /* ATTRIBUTION */
 .attribution {
@@ -32,3 +101,22 @@ h1{
 .attribution a {
      color: hsl(228, 45%, 44%); 
     }
+
+    /* MEDIA QUERIES */
+
+   @media screen and (min-width: 700px){
+       .container{
+           max-width: 1000px;
+           display: flex;
+           flex-direction:row;
+       }
+    
+    .img-desktop{
+           display: flex;
+           width: 100%;
+       }
+
+       .img-mobile{
+           display: none;
+       }
+   }
