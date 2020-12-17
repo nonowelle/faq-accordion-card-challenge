@@ -3,12 +3,13 @@
 *::after {
   margin: 0;
   padding: 0;
-  font-size: 13px;
-  box-sizing: border-box;
+  box-sizing: inherit
 }
 
 html {
-  font-size: 75%;
+  font-size: 12px;
+  box-sizing: border-box;
+  font-family: 'Kumbh Sans';
 }
 
 body{
@@ -17,31 +18,37 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 0 auto;
-    font-family: 'Kumbh Sans';
-    background: linear-gradient(#AF67E9, #6565E7); 
+    background: linear-gradient(#AF67E9, #6565E7);
+    line-height: 1.3rem;
+    
 
 }
 
 h2{
     color: hsl(237, 12%, 33%);
+    font-size: 1.2rem;
+    
+   
 }
 
 h1{
     color: hsl(238, 29%, 16%);
     font-size: 3rem;
-    padding: 0 2rem 2rem 2rem;
+    padding: 2rem 2rem 2rem 1.5rem;
     text-align: center;
 }
 
 p{
     color: hsl(240, 6%, 50%);
+    padding-bottom: 0rem;
 }
 
 
 .container {
-    height: 480px;
-    max-width:300px;
+    height: 70vh;
+    max-height: 500px;
+    width: 85%;
+    max-width: 325px;
     background-color: white;
     border-radius: 2rem;
     display: flex;
@@ -54,20 +61,20 @@ p{
 }
 .accordion {
     width: 100%;
-    padding: 2rem;
+    padding: 1.4rem;
     height: 80%;
 
 }
 
 .contentBox{
     position: relative;
-    margin: 0rem 1.5rem 0.8rem 1rem;
+    margin: 0rem 1.5rem 0 1rem;
 
 }
 
 .label{
     position: relative;
-    padding: 1rem;
+    padding: 1.2rem 1.5rem 0.8rem 0;
     border-bottom: 1px solid hsl(240, 5%, 91%);
     font-weight: 400;
 }
@@ -88,6 +95,7 @@ transform: translateY(-50%);
 .contentBox.active .label::before{
     content: url('/images/icon-arrow-down.svg');
     transform: rotate(180deg);
+    top:25%;
 }
 
 .content{
@@ -95,23 +103,42 @@ transform: translateY(-50%);
     overflow: hidden;
     height: 0;
     transition: 0.5s;
-    padding-left: 1.2rem;
+    padding: 0;
+    margin: 0;
 }
 
 .contentBox.active .content {
-    height: 50px;
-    padding: 0 1.2rem 0 1.2rem;
+    height: 65px;
+    padding: 0;
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+    line-height: 1.5rem;
+}
+
+.contentBox.closed  {
+    max-height: 0;
 }
 
 .img-mobile{
     position: absolute;
-    width: 80%;
-    top: -8rem;
+    margin: 0;
+    width: 240px;
+    top: -20%;
     right: 50%;
     transform: translateX(45%);
 }
 
+.img-shadow-mobile{
+    position: absolute;
+    top: 0rem;
+    left: 10%;
+    width: 80%;
+}
+
 .img-desktop{
+    display: none;
+}
+
+.img-shadow-desktop{
     display: none;
 }
 
@@ -125,8 +152,7 @@ transform: translateY(-50%);
     top: 90%;
     left: 50%;
     transform: translatex(-50%);
-    
-     
+
     }
 
 .attribution a {
@@ -142,39 +168,67 @@ transform: translateY(-50%);
     }
     
     .container{
+           width: 65vw;
            max-width: 1000px;
            display: flex;
            flex-direction:row;
            position: relative;
-           
-       }
+           line-height: 1.5rem;
+            }
 
-       .accordion {
+    .accordion {
         width: 55%;
-    }
-    
-      .img-desktop{
-           display: flex;
-           width: 48%;
-           position: absolute;
-           top: 95px;
-           left: -67px;
+        }
 
+    .imgs {
+            width: 45%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background: url('images/bg-pattern-desktop.svg');
+            background-position-y: -25rem;
+            background-position-x: -50rem;
+            background-repeat: no-repeat;
+        }
+        
+    
+    .img-desktop{
+           display: block;
+           position: absolute;
+           top: 14%;
+           left: -5rem;
+           height: 64%;
+           z-index: 1;
        }
-       .img-desktop-box{
+
+
+    .img-desktop-box{
         display:flex;
         position: absolute;
-        top: 39%;
-        left: -90px;
+        top: 37%;
+        left: -8rem;
+        z-index: 2;
        }
 
-       .img-mobile{
+    .img-mobile{
+           display: none;
+       }
+    .img-shadow-mobile{
            display: none;
        }
 
-       .contentBox{
+    .contentBox{
         position: relative;
-        margin: 1.5rem 6rem 1.5rem 1.5rem;
+        margin: 1.5rem 3rem 1.5rem 1.5rem;
     
     }
+    .contentBox.active .content{
+        height: 40px;
+    }
    }
+
+   @media screen and (max-width: 320px){
+   html {
+       font-size: 10px;
+   }
+}
