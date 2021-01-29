@@ -2,7 +2,7 @@
 
 ![Design preview for the FAQ Accordion Card coding challenge](./design/desktop-preview.jpg)
 
-## Genereal Info
+## General Info
 This was my third Front-End Mentor Challenge. I had to build out a FAQ accordion card and get it to look as close to the design as possible. I could use any tools I want to complete the task.
 
 The users had to be able to: 
